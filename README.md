@@ -13,7 +13,7 @@ Description of the workflow:
 
 Copyright (2013) by Timo Korkiakangas (University of Helsinki) & Matti Lassila (University of Tampere).
 
-aldt2pml transformation stylesheets copyrighed by Francesco Mambrini.
+aldt2pml transformation stylesheets copyrighted by Francesco Mambrini.
 
 Licenced under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
