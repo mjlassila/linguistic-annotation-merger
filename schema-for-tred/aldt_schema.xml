@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pml_schema
+  xmlns="http://ufal.mff.cuni.cz/pdt/pml/schema/"
+  version="1.1">
+  <revision>0.0.1</revision>
+  <description>Ancient Language Dependency Treebank (ALDT) annotation</description>
+
+  <root name="aldt_treebank" type="aldt-treebank.type"/>
+
+  <type name="aldt-treebank.type">
+    <structure>
+      <member name="aldt_meta" type="aldt-meta.type"/>
+      <member name="aldt_trees" role="#TREES" required="1">
+        <list type="aldt-sentence.type" ordered="1"/>
+      </member>
+    </structure>
+  </type>
+
+  <type name="aldt-meta.type">
+    <sequence>
+      <element name="aldt_annotator" type="aldt-annotator.type"/>
+    </sequence>
+  </type>
+
+  <type name="aldt-annotator.type">
+    <structure>
+      <member name="aldt_short">
+        <cdata format="any"/>
+      </member>
+      <member name="aldt_name">
+        <cdata format="any"/>
+      </member>
+      <member name="aldt_address">
+        <cdata format="any"/>
+      </member>
+    </structure>
+  </type>
+
+  <type name="aldt-sentence.type">
+    <container role="#NODE">
+      <attribute name="id" required="1">
+        <cdata format="nonNegativeInteger"/>
+      </attribute>
+      <attribute name="document_id"><cdata format="any"/></attribute>
+      <attribute name="subdoc"><cdata format="any"/></attribute>
+      <attribute name="span"><cdata format="any"/></attribute>
+      <attribute name="primary1"><cdata format="any"/></attribute>
+      <attribute name="primary2"><cdata format="any"/></attribute>
+      <attribute name="secondary"><cdata format="any"/></attribute>
+      <list role="#CHILDNODES" type="aldt-word.type" ordered="1"/>
+    </container>
+  </type>
+
+  <type name="aldt-word.type">
+    <container role="#NODE">
+      <attribute name="id" role="#ORDER" required="1">
+        <cdata format="nonNegativeInteger"/>
+      </attribute>
+      <attribute name="relation" required="1">
+        <cdata format="any"/>
+      </attribute>
+      
+	    <attribute name="seg" type="aldt-seg.type"/>
+	   
+      <attribute name="status" type="aldt-status.type"/>
+      
+      <attribute name="notes">
+        <cdata format="any"/>
+      </attribute>
+      
+      <attribute name="form" required="1">
+        <cdata format="any"/>
+      </attribute>
+      <attribute name="lemma" required="1">
+        <cdata format="any"/>
+      </attribute>
+
+      <attribute name="pos" type="aldt-pos.type"/>
+      <attribute name="person" type="aldt-person.type"/>
+      <attribute name="number" type="aldt-number.type"/>
+      <attribute name="tense" type="aldt-tense.type"/>
+      <attribute name="mood" type="aldt-mood.type"/>
+      <attribute name="voice" type="aldt-voice.type"/>
+      <attribute name="gender" type="aldt-gender.type"/>
+      <attribute name="case" type="aldt-case.type"/>
+      <attribute name="degree" type="aldt-degree.type"/>
+      <list role="#CHILDNODES" type="aldt-word.type" ordered="1"/>
+    </container>
+  </type>
+  
+  <type name="aldt-seg.type">
+    <choice>
+      <value>formulaic</value>
+      <value>free</value>
+      <value>subs</value>
+      <value/>
+    </choice>
+  </type>
+  
+  <type name="aldt-status.type">
+    <choice>
+      <value>normal</value>
+      <value>expan</value>
+      <value>damage</value>
+      <value/>
+    </choice>
+  </type>
+  
+  <type name="aldt-pos.type">
+    <choice>
+      <value>noun</value>
+      <value>verb</value>
+      <value>participle</value>
+      <value>adjective</value>
+      <value>adverb</value>
+      <value>conjunction</value>
+      <value>article</value>
+      <value>particle</value>
+      <value>preposition</value>
+      <value>pronoun</value>
+      <value>numeral</value>
+      <value>interjection</value>
+      <value>exclamation</value>
+      <value>irregular</value>
+      <value>punctuation</value>
+      <value/>
+    </choice>
+  </type>
+
+  <type name="aldt-person.type">
+    <choice>
+      <value>first_person</value>
+      <value>second_person</value>
+      <value>third_person</value>
+      <value/>
+    </choice>
+  </type>
+  
+  <type name="aldt-number.type">
+    <choice>
+      <value>singular</value>
+      <value>plural</value>
+      <value>dual</value>
+      <value/>
+    </choice>
+  </type>
+  
+  <type name="aldt-tense.type">
+    <choice>
+      <value>present</value>
+      <value>imperfect</value>
+      <value>perfect</value>
+      <value>pluperfect</value>
+      <value>future_perfect</value>
+      <value>future</value>
+      <value>aorist</value>
+      <value/>
+    </choice>
+  </type>
+  
+  <type name="aldt-mood.type">
+    <choice>
+      <value>indicative</value>
+      <value>subjunctive</value>
+      <value>optative</value>
+      <value>infinitive</value>
+      <value>imperative</value>
+      <value>gerundive</value>
+      <value>participial</value>
+      <value/>
+    </choice>
+  </type>
+  
+  <type name="aldt-voice.type">
+    <choice>
+      <value>active</value>
+      <value>passive</value>
+      <value>deponent</value>
+      <value>medio_passive</value>
+      <value/>
+    </choice>
+  </type>
+  
+  <type name="aldt-gender.type">
+    <choice>
+      <value>masculine</value>
+      <value>feminine</value>
+      <value>neuter</value>
+      <value/>
+    </choice>
+  </type>
+  
+  <type name="aldt-case.type">
+    <choice>
+      <value>nominative</value>
+      <value>genitive</value>
+      <value>dative</value>
+      <value>accusative</value>
+      <value>ablative</value>
+      <value>vocative</value>
+      <value>instrumental</value>
+      <value>locative</value>
+      <value/>
+    </choice>
+  </type>
+  
+  <type name="aldt-degree.type">
+    <choice>
+      <value>positive</value>
+      <value>comparative</value>
+      <value>superlative</value>
+      <value/>
+    </choice>
+  </type>
+  
+</pml_schema>

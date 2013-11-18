@@ -1,0 +1,1 @@
+Run the alignannotations-latin XQuery transformation scenario to merge the two annotation layers through XPointers. The script, created by Bridget Almas (Perseus Digital Library Project, Tufts University, USA), is found at https://github.com/balmas/tei-digital-age.
